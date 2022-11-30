@@ -1,3 +1,5 @@
+let list = document.getElementById('books')
+
 // empty array
 let myLibrary = []
 
@@ -23,5 +25,20 @@ const addBookToLibrary = () => {
     return bookInfo
 }
 
-myLibrary.push(addBookToLibrary())
-console.log(myLibrary)
+// myLibrary.push(addBookToLibrary())
+// console.table(myLibrary)
+
+
+// function for looping through array and displaying it in html
+for (books of myLibrary){
+    let bookTitle = document.createElement('h5')
+    let bookAuthor = document.createElement('p')
+    let bookPages = document.createElement('p')
+    bookTitle.innerText = books.title;
+    bookAuthor.innerText = books.author;
+    bookPages.innerText = books.pages;
+    list.appendChild(bookTitle)
+    list.appendChild(bookAuthor)
+    list.appendChild(bookPages)
+}
+
