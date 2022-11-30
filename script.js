@@ -1,10 +1,10 @@
 let list = document.getElementById('books')
+let button = document.getElementById('button')
 
-// empty array
 let myLibrary = []
 
 //constructor for creating books
-const book = (title, author, pages) => {
+function book (title, author, pages) {
     this.title = title
     this.author = author
     this.pages = pages
@@ -16,29 +16,34 @@ const addBookToLibrary = () => {
     let userAuthor = prompt('Who is the author?')
     let userPages = prompt('How many pages are there?')
 
-    let bookInfo = {
-        title: userTitle,
-        author: userAuthor,
-        pages: userPages
-    }
-
+    bookInfo = new book(userTitle, userAuthor, userPages)
     return bookInfo
 }
 
+// myLibrary.push(addBookToLibrary())
 // myLibrary.push(addBookToLibrary())
 // console.table(myLibrary)
 
 
 // function for looping through array and displaying it in html
 for (books of myLibrary){
+    let bookDiv = document.createElement('div')
     let bookTitle = document.createElement('h5')
     let bookAuthor = document.createElement('p')
     let bookPages = document.createElement('p')
     bookTitle.innerText = books.title;
     bookAuthor.innerText = books.author;
     bookPages.innerText = books.pages;
-    list.appendChild(bookTitle)
-    list.appendChild(bookAuthor)
-    list.appendChild(bookPages)
+    list.appendChild(bookDiv)
+    bookDiv.appendChild(bookTitle)
+    bookDiv.appendChild(bookAuthor)
+    bookDiv.appendChild(bookPages)
 }
 
+// Function for making form
+
+
+// EventListener
+button.addEventListener('click', function(){
+    console.log('This button is working')
+})
