@@ -12,43 +12,19 @@ function book (title, author, pages) {
     this.pages = pages
 }
 
-// function for adding things to the array
-// const addBookToLibrary = () => {
-//     let userTitle = prompt('What is the title?')
-//     let userAuthor = prompt('Who is the author?')
-//     let userPages = prompt('How many pages are there?')
-
-//     bookInfo = new book(userTitle, userAuthor, userPages)
-//     return bookInfo
-// }
-
-// myLibrary.push(addBookToLibrary())
-// myLibrary.push(addBookToLibrary())
-// console.table(myLibrary)
-
+// Globally setting values
 let bookTitleForm = undefined
 let bookAuthorForm = undefined
 let bookPagesForm = undefined
 
-// function for looping through array and displaying it in html
-for (books of myLibrary){
-    let bookDiv = document.createElement('div')
-    let bookTitle = document.createElement('h5')
-    let bookAuthor = document.createElement('p')
-    let bookPages = document.createElement('p')
-    bookTitle.innerText = books.title;
-    bookAuthor.innerText = books.author;
-    bookPages.innerText = books.pages;
-    list.appendChild(bookDiv)
-    bookDiv.appendChild(bookTitle)
-    bookDiv.appendChild(bookAuthor)
-    bookDiv.appendChild(bookPages)
-}
+
 
 // Function for making form
 const createForm = () => {
+    // Creating div for form
     let makeForm = document.createElement('div')
-    
+
+    // Form contents 
     bookTitleForm = document.createElement('input')
     bookTitleForm.setAttribute('type', 'text')
     bookTitleForm.setAttribute('placeholder', 'Title')
@@ -60,11 +36,11 @@ const createForm = () => {
     bookPagesForm.setAttribute('placeholder', 'Pages')
     let bookCheck = document.createElement('input')
     bookCheck.setAttribute('type', 'checkbox')
-    // bookCheck.setAttribute('name', 'Have you read this book?')
     let formSubmit = document.createElement('input')
     formSubmit.setAttribute('type', 'submit')
     formSubmit.setAttribute('name', 'submit')
     
+    // Adding form to div
     form.innerHTML = ''
     form.appendChild(makeForm)
     makeForm.appendChild(bookTitleForm)
@@ -72,9 +48,11 @@ const createForm = () => {
     makeForm.appendChild(bookPagesForm)
     makeForm.appendChild(bookCheck)
     makeForm.appendChild(formSubmit)
-    submitButton[0].addEventListener('click', storeInArray)
-    console.log(submitButton[0])
 
+    // EventListener for using submit button in form
+    submitButton[0].addEventListener('click', storeInArray)
+
+    // returning variables to update their value
     return bookTitleForm, bookAuthorForm, bookPagesForm
 }
 
@@ -87,12 +65,26 @@ const storeInArray = () => {
     bookInfo = new book(userTitle, userAuthor, userPages)
     myLibrary.push(bookInfo)
     console.table(myLibrary)
+    form.innerHTML = ''
+
+    updatingHTML()
 }
 
-
-// Function for clearing form
-const clear = () => {
-    
+// Function for looping through array and displaying it in html
+const updatingHTML = () => {
+    for (books of myLibrary){
+        let bookDiv = document.createElement('div')
+        let bookTitle = document.createElement('h5')
+        let bookAuthor = document.createElement('p')
+        let bookPages = document.createElement('p')
+        bookTitle.innerText = books.title;
+        bookAuthor.innerText = books.author;
+        bookPages.innerText = books.pages;
+        list.appendChild(bookDiv)
+        bookDiv.appendChild(bookTitle)
+        bookDiv.appendChild(bookAuthor)
+        bookDiv.appendChild(bookPages)
+    }
 }
 
 addBookButton.addEventListener('click', createForm)
