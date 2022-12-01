@@ -1,4 +1,5 @@
 let list = document.getElementById('books')
+let form = document.getElementById('form')
 let button = document.getElementById('button')
 
 let myLibrary = []
@@ -41,9 +42,35 @@ for (books of myLibrary){
 }
 
 // Function for making form
+const createForm = () => {
+    let makeForm = document.createElement('div')
+    
+    let bookTitleForm = document.createElement('input')
+    bookTitleForm.setAttribute('type', 'text')
+    bookTitleForm.setAttribute('placeholder', 'Title')
+    let bookAuthorForm = document.createElement('input')
+    bookAuthorForm.setAttribute('type', 'text')
+    bookAuthorForm.setAttribute('placeholder', 'Author')
+    let bookPagesForm = document.createElement('input')
+    bookPagesForm.setAttribute('type', 'number')
+    bookPagesForm.setAttribute('placeholder', 'Pages')
+    let bookCheck = document.createElement('input')
+    bookCheck.setAttribute('type', 'checkbox')
+    let formSubmit = document.createElement('input')
+    formSubmit.setAttribute('type', 'submit')
 
+    form.innerHTML = ''
+    form.appendChild(makeForm)
+    makeForm.appendChild(bookTitleForm)
+    makeForm.appendChild(bookAuthorForm)
+    makeForm.appendChild(bookPagesForm)
+    makeForm.appendChild(bookCheck)
+    makeForm.appendChild(formSubmit)
+}
 
 // EventListener
-button.addEventListener('click', function(){
-    console.log('This button is working')
-})
+// button.addEventListener('click', function(){
+//     console.log('This button is working')
+// })
+
+button.addEventListener('click', createForm)
