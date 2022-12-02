@@ -72,14 +72,15 @@ const storeInArray = () => {
 
 // Function for looping through array and displaying it in html
 const updatingHTML = () => {
-    for (books of myLibrary){
-        let bookDiv = document.createElement('div')
-        let bookTitle = document.createElement('h5')
-        let bookAuthor = document.createElement('p')
-        let bookPages = document.createElement('p')
-        bookTitle.innerText = books.title;
-        bookAuthor.innerText = books.author;
-        bookPages.innerText = books.pages;
+    let bookDiv = document.createElement('div')
+    let bookTitle = document.createElement('h5')
+    let bookAuthor = document.createElement('p')
+    let bookPages = document.createElement('p')
+
+    for (books of myLibrary.slice(-1)){
+        bookTitle.innerText = books.title
+        bookAuthor.innerText = books.author
+        bookPages.innerText = books.pages
         list.appendChild(bookDiv)
         bookDiv.appendChild(bookTitle)
         bookDiv.appendChild(bookAuthor)
