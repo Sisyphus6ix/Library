@@ -90,8 +90,8 @@ const updatingHTML = () => {
     let removeBtn = document.createElement("button");
     removeBtn.setAttribute("type", "button");
     removeBtn.setAttribute("name", "removeBtn");
-    removeBtn.insertAdjacentText("beforeend", "Remove");
     removeBtn.setAttribute("index", i);
+    removeBtn.insertAdjacentText("beforeend", "Remove");
     removeBtn.addEventListener("click", removeFromArray);
 
     let books = myLibrary[i];
