@@ -76,6 +76,10 @@ const updatingHTML = () => {
     let bookTitle = document.createElement('h5')
     let bookAuthor = document.createElement('p')
     let bookPages = document.createElement('p')
+    let removeBtn = document.createElement('button')
+    removeBtn.setAttribute('type', 'button')
+    removeBtn.setAttribute('name', 'removeBtn')
+    removeBtn.insertAdjacentText('beforeend', 'Remove')
 
     for (books of myLibrary.slice(-1)){
         bookTitle.innerText = books.title
@@ -85,6 +89,7 @@ const updatingHTML = () => {
         bookDiv.appendChild(bookTitle)
         bookDiv.appendChild(bookAuthor)
         bookDiv.appendChild(bookPages)
+        bookDiv.appendChild(removeBtn)
     }
 }
 
