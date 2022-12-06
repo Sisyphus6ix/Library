@@ -61,7 +61,14 @@ const storeInArray = () => {
   let userTitle = bookTitleForm.value;
   let userAuthor = bookAuthorForm.value;
   let userPages = bookPagesForm.value;
-  let userStatus = bookStatusForm.value;
+  let userStatus = bookStatusForm.checked;
+
+  // Checking if book has been read or not
+  if (userStatus == true){
+    userStatus = 'Read'
+  } else {
+    userStatus = 'Not Read'
+  }
 
   bookInfo = new book(userTitle, userAuthor, userPages, userStatus);
   myLibrary.push(bookInfo);
