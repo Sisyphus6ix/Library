@@ -17,7 +17,7 @@ function book(title, author, pages, status) {
 let bookTitleForm = undefined;
 let bookAuthorForm = undefined;
 let bookPagesForm = undefined;
-let bookStatusForm = false
+let bookStatusForm = false;
 
 // Function for making form
 const createForm = () => {
@@ -35,7 +35,7 @@ const createForm = () => {
   bookPagesForm.setAttribute("type", "number");
   bookPagesForm.setAttribute("placeholder", "Pages");
   bookStatusForm = document.createElement("input");
-  bookStatusForm.setAttribute('type', 'checkbox');
+  bookStatusForm.setAttribute("type", "checkbox");
   let formSubmit = document.createElement("input");
   formSubmit.setAttribute("type", "submit");
   formSubmit.setAttribute("name", "submit");
@@ -84,13 +84,13 @@ const updatingHTML = () => {
     updatingHTML();
   };
 
-  // Looping through array and giving each removeBtn correlation the right object 
+  // Looping through array and giving each removeBtn correlation the right object
   for (let i = 0; i < myLibrary.length; i++) {
     let bookDiv = document.createElement("div");
     let bookTitle = document.createElement("h5");
     let bookAuthor = document.createElement("p");
     let bookPages = document.createElement("p");
-    let bookStatus = document.createElement('p')
+    let bookStatus = document.createElement("p");
     let removeBtn = document.createElement("button");
     removeBtn.setAttribute("type", "button");
     removeBtn.setAttribute("name", "removeBtn");
@@ -106,7 +106,7 @@ const updatingHTML = () => {
     list.appendChild(bookDiv);
     bookDiv.appendChild(bookTitle);
     bookDiv.appendChild(bookAuthor);
-    bookDiv.appendChild(bookPages)
+    bookDiv.appendChild(bookPages);
     bookDiv.appendChild(bookStatus);
     bookDiv.appendChild(removeBtn);
   }
