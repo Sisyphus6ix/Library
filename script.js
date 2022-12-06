@@ -6,16 +6,18 @@ const submitButton = document.getElementsByName("submit");
 let myLibrary = [];
 
 //constructor for creating books
-function book(title, author, pages) {
+function book(title, author, pages, status) {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.status = status;
 }
 
 // Globally setting values
 let bookTitleForm = undefined;
 let bookAuthorForm = undefined;
 let bookPagesForm = undefined;
+let bookStatusForm = false
 
 // Function for making form
 const createForm = () => {
@@ -32,8 +34,8 @@ const createForm = () => {
   bookPagesForm = document.createElement("input");
   bookPagesForm.setAttribute("type", "number");
   bookPagesForm.setAttribute("placeholder", "Pages");
-  let bookCheck = document.createElement("input");
-  bookCheck.setAttribute("type", "checkbox");
+  bookStatusForm = document.createElement("input");
+  bookStatusForm.setAttribute('type', 'checkbox');
   let formSubmit = document.createElement("input");
   formSubmit.setAttribute("type", "submit");
   formSubmit.setAttribute("name", "submit");
@@ -44,14 +46,14 @@ const createForm = () => {
   makeForm.appendChild(bookTitleForm);
   makeForm.appendChild(bookAuthorForm);
   makeForm.appendChild(bookPagesForm);
-  makeForm.appendChild(bookCheck);
+  makeForm.appendChild(bookStatusForm);
   makeForm.appendChild(formSubmit);
 
   // EventListener for using submit button in form
   submitButton[0].addEventListener("click", storeInArray);
 
   // returning variables to update their value
-  return bookTitleForm, bookAuthorForm, bookPagesForm;
+  return bookTitleForm, bookAuthorForm, bookPagesForm, bookStatusForm;
 };
 
 // Function for storing books in array
@@ -59,8 +61,9 @@ const storeInArray = () => {
   let userTitle = bookTitleForm.value;
   let userAuthor = bookAuthorForm.value;
   let userPages = bookPagesForm.value;
+  let userStatus = bookStatusForm.value;
 
-  bookInfo = new book(userTitle, userAuthor, userPages);
+  bookInfo = new book(userTitle, userAuthor, userPages, userStatus);
   myLibrary.push(bookInfo);
   console.table(myLibrary);
   form.innerHTML = "";
@@ -87,6 +90,7 @@ const updatingHTML = () => {
     let bookTitle = document.createElement("h5");
     let bookAuthor = document.createElement("p");
     let bookPages = document.createElement("p");
+    let bookStatus = document.createElement('p')
     let removeBtn = document.createElement("button");
     removeBtn.setAttribute("type", "button");
     removeBtn.setAttribute("name", "removeBtn");
@@ -98,10 +102,12 @@ const updatingHTML = () => {
     bookTitle.innerText = books.title;
     bookAuthor.innerText = books.author;
     bookPages.innerText = books.pages;
+    bookStatus.innerText = books.status;
     list.appendChild(bookDiv);
     bookDiv.appendChild(bookTitle);
     bookDiv.appendChild(bookAuthor);
-    bookDiv.appendChild(bookPages);
+    bookDiv.appendChild(bookPages)
+    bookDiv.appendChild(bookStatus);
     bookDiv.appendChild(removeBtn);
   }
 };
