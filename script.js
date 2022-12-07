@@ -27,13 +27,13 @@ const createForm = () => {
   // Form contents
   bookTitleForm = document.createElement("input");
   bookTitleForm.setAttribute("type", "text");
-  bookTitleForm.setAttribute("placeholder", "Title");
+  bookTitleForm.setAttribute("placeholder", "Enter Title");
   bookAuthorForm = document.createElement("input");
   bookAuthorForm.setAttribute("type", "text");
-  bookAuthorForm.setAttribute("placeholder", "Author");
+  bookAuthorForm.setAttribute("placeholder", "Enter Author");
   bookPagesForm = document.createElement("input");
   bookPagesForm.setAttribute("type", "number");
-  bookPagesForm.setAttribute("placeholder", "Pages");
+  bookPagesForm.setAttribute("placeholder", "How Many Pages?");
   bookStatusForm = document.createElement("input");
   bookStatusForm.setAttribute("type", "checkbox");
   let formSubmit = document.createElement("input");
@@ -94,11 +94,12 @@ const updatingHTML = () => {
   // Looping through array and giving each removeBtn correlation the right object
   for (let i = 0; i < myLibrary.length; i++) {
     let bookDiv = document.createElement("div");
-    let bookTitle = document.createElement("h5");
+    let bookTitle = document.createElement("p");
     let bookAuthor = document.createElement("p");
     let bookPages = document.createElement("p");
     let bookStatus = document.createElement("p");
     let removeBtn = document.createElement("button");
+    bookStatus.setAttribute('id', 'bookStatus')
     removeBtn.setAttribute("type", "button");
     removeBtn.setAttribute("name", "removeBtn");
     removeBtn.setAttribute("index", i);

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
 * {
     margin: 0px;
 }
@@ -5,12 +7,61 @@
 .main-container {
     display: flex;
     flex-direction: column;
+    color: white;
+    font-family: 'Zen Dots', cursive;
+    background-color: #023E8A;
     gap: 10px;
     height: 100vh;
 }
 
-#books {
-    /* border: solid red 3px; */
+#header {
     display: flex;
-    gap: 1.5rem;
+    padding: 20px;
+    background-color: #0366bc;
 }
+
+#button {
+    display: flex;
+    padding: 20px 0px 0px 20px;
+}
+
+#form {
+    display: flex;
+    padding: 20px 0px 0px 20px;
+}
+
+#form > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#caption {
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+#books {
+    padding: 20px;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+#books > div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+ #books p {
+    font-size: .9rem;
+ }
+
+ button:hover {
+    cursor: pointer;
+ }
