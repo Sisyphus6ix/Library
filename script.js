@@ -58,14 +58,16 @@ const createForm = () => {
   makeForm.appendChild(formSubmit);
 
   // EventListener for using submit button in form
-  submitButton[0].addEventListener("submit", storeInArray);
+  makeForm.addEventListener("submit", storeInArray);
 
   // returning variables to update their value
   return bookTitleForm, bookAuthorForm, bookPagesForm, bookStatusForm;
 };
 
 // Function for storing books in array
-const storeInArray = () => {
+const storeInArray = (event) => {
+  event.preventDefault('submit')
+  
   let userTitle = bookTitleForm.value;
   let userAuthor = bookAuthorForm.value;
   let userPages = bookPagesForm.value;
@@ -82,7 +84,6 @@ const storeInArray = () => {
   myLibrary.push(bookInfo);
   console.table(myLibrary);
   form.innerHTML = "";
-
   updatingHTML();
 };
 
