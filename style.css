@@ -1,67 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap");
 
 * {
-    margin: 0px;
+  margin: 0px;
 }
 
 .main-container {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    font-family: 'Zen Dots', cursive;
-    background-color: #023E8A;
-    gap: 10px;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: "Zen Dots", cursive;
+  background-color: #192336;
+  gap: 10px;
+  height: 100vh;
+  min-width: fit-content;
 }
 
 #header {
-    display: flex;
-    padding: 20px;
-    background-color: #0366bc;
+  display: flex;
+  padding: 20px;
+  background-color: #628a9e;
 }
 
 #button {
-    display: flex;
-    padding: 20px 0px 0px 20px;
+  display: flex;
+  padding: 20px 0px 0px 20px;
 }
 
 #form {
-    display: flex;
-    padding: 20px 0px 0px 20px;
+  display: flex;
+  padding: 20px 0px 0px 20px;
 }
 
-#form > div {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+#form > form {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 1.7rem;
 }
 
 #caption {
-    display: flex;
-    justify-content: center;
-    /* text-align: center; */
-    font-size: 1.5rem;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  padding: 20px;
 }
 
 #books {
-    padding: 20px;
-    display: flex;
-    text-align: center;
-    flex-wrap: wrap;
-    gap: 4rem;
+  padding: 20px;
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 4rem;
 }
 
-#books > div{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+#books > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
- #books p {
-    font-size: .9rem;
- }
+#books p {
+  font-size: 0.9rem;
+}
 
- button:hover {
-    cursor: pointer;
- }
+button:hover {
+  cursor: pointer;
+}

@@ -22,20 +22,27 @@ let bookStatusForm = false;
 // Function for making form
 const createForm = () => {
   // Creating div for form
-  let makeForm = document.createElement("div");
+  let makeForm = document.createElement("form");
 
   // Form contents
   bookTitleForm = document.createElement("input");
   bookTitleForm.setAttribute("type", "text");
   bookTitleForm.setAttribute("placeholder", "Enter Title");
+  bookTitleForm.required = true;
   bookAuthorForm = document.createElement("input");
   bookAuthorForm.setAttribute("type", "text");
   bookAuthorForm.setAttribute("placeholder", "Enter Author");
+  bookAuthorForm.required = true;
   bookPagesForm = document.createElement("input");
   bookPagesForm.setAttribute("type", "number");
   bookPagesForm.setAttribute("placeholder", "How Many Pages?");
+  bookPagesForm.required = true;
   bookStatusForm = document.createElement("input");
   bookStatusForm.setAttribute("type", "checkbox");
+  bookStatusForm.setAttribute("name", "checkbox");
+  let statusLabel = document.createElement("label");
+  statusLabel.setAttribute("for", "checkbox");
+  statusLabel.innerText = "Have you read this?";
   let formSubmit = document.createElement("input");
   formSubmit.setAttribute("type", "submit");
   formSubmit.setAttribute("name", "submit");
@@ -47,10 +54,11 @@ const createForm = () => {
   makeForm.appendChild(bookAuthorForm);
   makeForm.appendChild(bookPagesForm);
   makeForm.appendChild(bookStatusForm);
+  makeForm.appendChild(statusLabel);
   makeForm.appendChild(formSubmit);
 
   // EventListener for using submit button in form
-  submitButton[0].addEventListener("click", storeInArray);
+  submitButton[0].addEventListener("submit", storeInArray);
 
   // returning variables to update their value
   return bookTitleForm, bookAuthorForm, bookPagesForm, bookStatusForm;
@@ -64,10 +72,10 @@ const storeInArray = () => {
   let userStatus = bookStatusForm.checked;
 
   // Checking if book has been read or not
-  if (userStatus == true){
-    userStatus = 'Read'
+  if (userStatus == true) {
+    userStatus = "Read";
   } else {
-    userStatus = 'Not Read'
+    userStatus = "Not Read";
   }
 
   bookInfo = new book(userTitle, userAuthor, userPages, userStatus);
@@ -99,7 +107,7 @@ const updatingHTML = () => {
     let bookPages = document.createElement("p");
     let bookStatus = document.createElement("p");
     let removeBtn = document.createElement("button");
-    bookStatus.setAttribute('id', 'bookStatus')
+    bookStatus.setAttribute("id", "bookStatus");
     removeBtn.setAttribute("type", "button");
     removeBtn.setAttribute("name", "removeBtn");
     removeBtn.setAttribute("index", i);
